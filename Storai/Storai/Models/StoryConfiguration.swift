@@ -9,6 +9,15 @@ struct StoryConfiguration: Codable, Hashable {
         case scienceFiction = "scifi"
     }
     
+    // Available hero types for the main character
+    enum HeroType: String, CaseIterable, Codable {
+        case warrior = "warrior"
+        case wizard = "wizard"
+        case explorer = "explorer"
+        case detective = "detective"
+        case astronaut = "astronaut"
+    }
+    
     // Available art styles for story illustrations
     enum ImageStyle: String, CaseIterable, Codable {
         case realistic = "realistic"
@@ -28,9 +37,10 @@ struct StoryConfiguration: Codable, Hashable {
     
     // Story configuration properties
     var storyType: StoryType
-    var heroCharacter: String        // Name/description of main character
-    var subject: String             // Main theme or subject of the story
-    var setting: String            // Where the story takes place
+    var heroName: String           // User-provided name for the hero
+    var heroType: HeroType        // Type/role of the hero
+    var subject: String           // Main theme or subject of the story
+    var setting: String           // Where the story takes place
     var imageStyle: ImageStyle     // Visual style for illustrations
     var customImageUrls: [String]? // Optional reference images for style
     var writingStyle: WritingStyle // Tone and style of writing

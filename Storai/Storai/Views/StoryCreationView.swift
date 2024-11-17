@@ -26,16 +26,14 @@ struct StoryCreationView: View {
                         .padding()
                     case 2:
                         VStack {
-                            TextField("Hero Name", text: $viewModel.configuration.heroCharacter)
+                            TextField("Hero Name", text: $viewModel.configuration.heroName)
                                 .textFieldStyle(.roundedBorder)
                                 .padding()
                             
-                            Picker("Hero Type", selection: $viewModel.configuration.heroCharacter) {
-                                Text("Warrior").tag("warrior")
-                                Text("Wizard").tag("wizard")
-                                Text("Explorer").tag("explorer") 
-                                Text("Detective").tag("detective")
-                                Text("Astronaut").tag("astronaut")
+                            Picker("Hero Type", selection: $viewModel.configuration.heroType) {
+                                ForEach(StoryConfiguration.HeroType.allCases, id: \.self) { type in
+                                    Text(type.rawValue.capitalized).tag(type)
+                                }
                             }
                             .pickerStyle(.wheel)
                             .padding()

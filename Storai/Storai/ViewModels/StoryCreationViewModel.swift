@@ -5,7 +5,8 @@ class StoryCreationViewModel: ObservableObject {
     // Published configuration that updates the UI when changed
     @Published var configuration = StoryConfiguration(
         storyType: .adventure,
-        heroCharacter: "",
+        heroName: "",
+        heroType: .warrior,
         subject: "",
         setting: "",
         imageStyle: .cartoon,
